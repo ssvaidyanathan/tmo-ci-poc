@@ -2974,7 +2974,7 @@
     </PostFlow>
 
     <HTTPProxyConnection>
-        <BasePath>/v1/cart</BasePath>
+        <BasePath>/v1/cart-poc</BasePath>
 		<VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
 
