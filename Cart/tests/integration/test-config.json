@@ -1,0 +1,6 @@
+{
+	"cartApi": {
+		"domain": "demo-test.apigee.net",
+		"basepath": "/v1/cart"
+	}
+}
