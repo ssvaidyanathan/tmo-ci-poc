@@ -7,10 +7,11 @@ var jsonfile = require("jsonfile");
 var _ = require("lodash");
 
 // set the url and base path for your API endpoint on Apigee edge
+var config = require('../../test-config.json');
 
-var env = process.env.ENV_PROPS || "DIT01.postman_environment.json";
+var env = config.cartApi.propsFile || "DIT01.postman_environment.json";
 
-var props = jsonfile.readFileSync(env);
+var props = jsonfile.readFileSync("./tests/integration/features/"+env);
 
 console.log(env);
 
@@ -28,7 +29,10 @@ module.exports = function() {
     
     // cleanup before every scenario
     this.Before(function(scenario, callback) {
-        this.apickli = new apickli.Apickli(urlProps[0], urlProps[1]);
+        //this.apickli = new apickli.Apickli(urlProps[0], urlProps[1]);
+        this.apickli = new apickli.Apickli('https',
+                                           config.cartApi.domain,
+                                           './tests/integration/features/fixtures/');
         callback();
     });
 

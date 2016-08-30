@@ -24,7 +24,8 @@ Feature: As a Cart API consumer, I want to create a Cart
 		Given I set query parameters to 
 		| 	parameter   | 	value 		|
 		|	include		|	cart		|
-		Given I pipe contents of file ./fixtures/CreateCart.json to body
+		#Given I pipe contents of file ./tests/integration/features/fixtures/CreateCart.json to body
+		Given I pipe contents of file ./CreateCart.json to body
 		Given I set the custom headers
 		When I POST to /v1/cart
 		Then response code should be 401
@@ -39,7 +40,7 @@ Feature: As a Cart API consumer, I want to create a Cart
 		Given I set query parameters to 
 		| 	parameter   | 	value 		|
 		|	include		|	cart		|
-		Given I pipe contents of file ./fixtures/CreateCart.json to body
+		Given I pipe contents of file ./CreateCart.json to body
 		When I set bearer token
 		When I POST to /v1/cart
 		Then response code should be 400
@@ -54,7 +55,7 @@ Feature: As a Cart API consumer, I want to create a Cart
 		Given I set query parameters to 
 		| 	parameter   | 	value 		|
 		|	include		|	cart		|
-		Given I pipe contents of file ./fixtures/CreateCart.json to body
+		Given I pipe contents of file ./CreateCart.json to body
 		Given I set the custom headers
 		When I set bearer token
 		When I POST to /v1/cart
