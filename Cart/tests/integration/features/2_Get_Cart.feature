@@ -6,7 +6,7 @@
 
 		Given I set the custom headers
 		When I set bearer token
-		When I GET /v1/cart/
+		When I get cart for /
 		Then response code should be 400
 		Then response body should be valid json
 		Then response body path $.errors.error[0].code should be GENERAL-0001
@@ -18,7 +18,7 @@
 
 		Given I set the custom headers
 		When I set bearer token
-		When I GET /v1/cart/abc123
+		When I get cart for abc123
 		Then response code should be 503
 		Then response body should be valid json
 		Then response body path $.errors.error[0].code should be SYSTEM-1001
@@ -30,7 +30,7 @@
 
 		Given I set the custom headers
 		When I set bearer token
-		When I get the cart created
+		When I get cart created
 		Then response code should be 200
 		Then response body should be valid json
 		Then value of body path $.cart.@cartId should match with CartId in global scope

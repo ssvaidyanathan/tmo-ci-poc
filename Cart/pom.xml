@@ -137,7 +137,7 @@
 				<configuration>
 					<basedir>${target.root.dir}</basedir>
 					<includes>
-						<include>apiproxy/proxies/default.xml</include>
+						<include>apiproxy/proxies/CartProxyEndpoint.xml</include>
 						<include>tests/integration/test-config.json</include>
 						<include>apiproxy/Cart.xml</include>
 					</includes>

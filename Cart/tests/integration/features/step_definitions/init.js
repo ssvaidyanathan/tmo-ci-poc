@@ -16,23 +16,15 @@ var props = jsonfile.readFileSync("./tests/integration/features/"+env);
 console.log(env);
 
 module.exports = function() {
-    var host = _.find(props.values, { "key": "Host"}).value;
-    if(host===null){
-        host = "https://dit01.api.t-mobile.com";
-    }
-
-    var urlProps = host.split("://");
-
     //Set timeout from the config
     //(_.find(props.values, { "key": "ResponseTimeSLAms"}).value === null)
       //      ?this.setDefaultTimeout(2000):this.setDefaultTimeout(_.find(props.values, { "key": "ResponseTimeSLAms"}).value);
     
     // cleanup before every scenario
     this.Before(function(scenario, callback) {
-        //this.apickli = new apickli.Apickli(urlProps[0], urlProps[1]);
-        this.apickli = new apickli.Apickli('https',
+        this.apickli = new apickli.Apickli("https",
                                            config.cartApi.domain,
-                                           './tests/integration/features/fixtures/');
+                                           "./tests/integration/features/fixtures/");
         callback();
     });
 

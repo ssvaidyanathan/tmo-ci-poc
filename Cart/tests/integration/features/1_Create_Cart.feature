@@ -24,10 +24,9 @@ Feature: As a Cart API consumer, I want to create a Cart
 		Given I set query parameters to 
 		| 	parameter   | 	value 		|
 		|	include		|	cart		|
-		#Given I pipe contents of file ./tests/integration/features/fixtures/CreateCart.json to body
 		Given I pipe contents of file ./CreateCart.json to body
 		Given I set the custom headers
-		When I POST to /v1/cart
+		When I create cart
 		Then response code should be 401
 		Then response body should be valid json
 		Then response body path $.errors.error[0].code should be InvalidAccessToken
@@ -42,7 +41,7 @@ Feature: As a Cart API consumer, I want to create a Cart
 		|	include		|	cart		|
 		Given I pipe contents of file ./CreateCart.json to body
 		When I set bearer token
-		When I POST to /v1/cart
+		When I create cart
 		Then response code should be 400
 		Then response body should be valid json
 		Then response body path $.errors.error[0].code should be SECURITY-0052
@@ -58,7 +57,7 @@ Feature: As a Cart API consumer, I want to create a Cart
 		Given I pipe contents of file ./CreateCart.json to body
 		Given I set the custom headers
 		When I set bearer token
-		When I POST to /v1/cart
+		When I create cart
 		Then response code should be 200
 		Then response body should be valid json
 		Then I store the value of body path $.cart.@cartId as CartId in global scope

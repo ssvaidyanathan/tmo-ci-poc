@@ -7,5 +7,5 @@
 		Given I set the custom headers
 		When I set bearer token
 		Given I pipe contents of file ./UpdateCart.json to body
-		When I update the cart 
+		When I update cart 
 		Then response code should be 204
