@@ -111,7 +111,7 @@
 									<filtering>true</filtering>
 									<includes>
 										<include>apiproxy/**</include>
-										<include>test/integration/**</include>
+										<include>tests/integration/**</include>
 									</includes>
 								</resource>
 							</resources>
@@ -137,18 +137,22 @@
 				<configuration>
 					<basedir>${target.root.dir}</basedir>
 					<includes>
-						<include>apiproxy/proxies/default.xml</include>
-						<include>test/integration/test-config.json</include>
+						<include>apiproxy/proxies/CartProxyEndpoint.xml</include>
+						<include>tests/integration/test-config.json</include>
 						<include>apiproxy/Cart.xml</include>
 					</includes>
 					<replacements>
 						<replacement>
-							<token>/v1/cart</token>
-							<value>/v1/cart-${deployment.suffix}</value>
+							<token>/v1/cart-poc</token>
+							<value>/v1/cart-poc-${deployment.suffix}</value>
 						</replacement>
 						<replacement>
 							<token>demo-test.apigee.net</token>
 							<value>${api.northbound.domain}</value>
+						</replacement>
+						<replacement>
+							<token>DIT01.postman_environment.json</token>
+							<value>${apigee.env.props}</value>
 						</replacement>
 						<replacement>
 							<token>@description</token>
@@ -221,9 +225,9 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
-							<executable>ENV_PROPS=${apigee.env.props} ./node_modules/cucumber/bin/cucumber.js</executable>
+							<executable>./node_modules/cucumber/bin/cucumber.js</executable>
 							<commandlineArgs>
-								target/test/integration/features --tags ${api.testtag}
+								target/tests/integration/features --tags ${api.testtag} --format json:reports.json
 							</commandlineArgs>
 						</configuration>
 					</execution>
