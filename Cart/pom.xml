@@ -227,7 +227,7 @@
 						<configuration>
 							<executable>./node_modules/cucumber/bin/cucumber.js</executable>
 							<commandlineArgs>
-								target/tests/integration/features --tags ${api.testtag}
+								target/tests/integration/features --tags ${api.testtag} --format json:reports.json
 							</commandlineArgs>
 						</configuration>
 					</execution>
