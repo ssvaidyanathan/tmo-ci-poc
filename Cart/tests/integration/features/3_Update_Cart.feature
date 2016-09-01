@@ -1,4 +1,5 @@
-#Update Cart Scenarios
+Feature: As a Cart API consumer, I want to update the Cart Information
+	
 	Scenario: Update the Cart Item
 		As a Carts API Consumer
 		I would like to update the Cart info for a given CartId
