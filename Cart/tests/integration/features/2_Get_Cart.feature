@@ -1,4 +1,5 @@
-#Get Cart Scenarios
+Feature: As a Cart API consumer, I want to Get the Cart Information
+
 	Scenario: (Negative) Get the Cart Item without passing a Cart Id
 		As a Carts API Consumer
 		I would like to call the get Cart info without passing a valid id
